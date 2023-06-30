@@ -10,7 +10,11 @@ lupa.addEventListener('click',function() {
 }) 
      
 async function buscarTempo(campo) {
-
+    const estado = document.getElementById('sp-estado');
+    const grau = document.getElementById('grau');
+    const tempo = document.getElementById('estado-do-tempo');
+    const umidade = document.getElementById('umidade');
+    const icon = document.getElementById('icon')
     try {
         var consultatempo = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${campo}&appid=${key}&lang=pt_br&units=metric`);
 
@@ -29,7 +33,11 @@ async function buscarTempo(campo) {
 
         return consultatempoverificada
     } catch (erro) {
-
+        estado.innerHTML = " Cidade inexistente"
+        grau.innerHTML = "--"
+        tempo.innerHTML = "--"
+        umidade.innerHTML = "--"
+        icon.innerHTML = "--"
     }
 }
 
